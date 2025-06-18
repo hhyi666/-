@@ -1,0 +1,19 @@
+//项目提供scss的全局变量
+//设置scss全局变量
+$color : green;
+//定义项目的主题颜色或者其他的东西的样式可以在这里进行设置
+//左侧的菜单的宽度
+$base_menu_width : 260px;
+//左侧菜单的背景颜色
+$base_menu_background : #001529;
+//顶部导航的高度
+$base_tablebar_height : 50px;
+
+//左侧的菜单logo区域的样式
+$base_menu_logo_height : 50px;
+
+//左侧菜单logo文字的大小
+$base_logo_title_fontsize : 20px;
+
+//折叠的宽度
+$base_menu_min_width : 50px;

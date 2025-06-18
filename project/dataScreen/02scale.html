@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            /* 进行设置 */
+            width: 100vw;
+            height: 100vh;
+            background: url('./bg.png') no-repeat;
+            background-size: cover;
+        }
+        .box{
+            position: fixed;
+            width: 1920px;
+            height: 1080px;
+            background-color: skyblue;
+            /* 缩放的基点，默认是中心 */
+            transform-origin: left top;
+            left: 50%;
+            top: 50%;
+        }
+        .top{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin-left: 50px;
+        }
+        .bottom{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-left: 50px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 数据的展示 -->
+        <div class="box">
+            <div class="top">123</div>
+            <div class="bottom">123</div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    //控制数据大屏的放大和缩小
+    let box = document.querySelector('.box')
+    // 将数据计算得到之后拽回去
+    box.style.transform = `scale(${getScale()}) translate(-50%,-50%)`
+    //计算缩放的比例
+    function getScale(w=1920,h=1080){
+        //根据设备进行操作
+
+        //计算这个放大缩小的比例
+        const ww = window.innerWidth / w
+        const hh = window.innerHeight / h
+        return ww<hh?ww:hh
+        // 这样不会进行拉伸操作 使用缩放较少的值 就是较小值
+    } 
+    // 视口进行变化的时候就会进行更新
+    window.onresize = () => {
+        box.style.transform = `scale(${getScale()}) translate(-50%,-50%)`
+    }
+</script>
